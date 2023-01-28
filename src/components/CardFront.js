@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/CardFront.scss";
-import card_front from "../images/bg-card-front.png";
+
 import logo from "../images/card-logo.svg";
 function CardFront() {
   return (
