@@ -4,7 +4,7 @@ import "../styles/CardFront.scss";
 import logo from "../images/card-logo.svg";
 function CardFront() {
   return (
-    <div className="front-card-wrapper">
+    <div className="front-card-wrapper card-front-mobile">
       <img className="card-logo" src={logo} alt=""></img>
       <div className="card-number">0000 0000 0000 0000</div>
 
