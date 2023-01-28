@@ -1,12 +1,15 @@
 // import icon_complete from "./images/icon-complete.svg";
 import bg_main_mobile from "./images/bg-main-mobile.png";
 import "./App.scss";
+import CardBack from "./components/CardBack";
+import CardFront from "./components/CardFront";
 
 function App() {
   return (
     <div className="App">
       <img className="background-mobile" src={bg_main_mobile} alt=""></img>
-
+      <CardBack />
+      <CardFront />
       <div className="margin">
         <div className="inputs">
           <div className="input-wrapper">

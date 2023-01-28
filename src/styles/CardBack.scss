@@ -1,0 +1,23 @@
+$white: hsl(0, 0%, 100%);
+
+.back-card-wrapper {
+  width: 300px;
+  height: 160px;
+  position: relative;
+}
+
+.card-back {
+  max-width: 100%;
+}
+
+.card-back-value {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  color: $white;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.6em;
+  letter-spacing: 0.15em;
+  transform: translate(-40px, 74px);
+}

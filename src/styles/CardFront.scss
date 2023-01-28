@@ -1,0 +1,47 @@
+$white: hsl(0, 0%, 100%);
+
+.front-card-wrapper {
+  //   width: 300px;
+  //   height: 160px;
+  //   position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: "Space Grotesk", sans-serif;
+  z-index: 5;
+  width: 300px;
+  min-height: 160px;
+  color: $white;
+  border-radius: 5px;
+  background-image: url(../images/bg-card-front.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  padding: 0.4em 0.6em;
+}
+
+.card-number {
+  text-align: center;
+  letter-spacing: 0.2em;
+}
+
+.card-logo {
+  max-width: 60px;
+}
+
+.name-exp-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-owner {
+  font-size: 0.6em;
+  text-transform: uppercase;
+}
+
+.card-exp {
+  font-size: 0.6em;
+  text-transform: uppercase;
+}
