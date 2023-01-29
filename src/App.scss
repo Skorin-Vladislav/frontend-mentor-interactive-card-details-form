@@ -61,8 +61,8 @@ label[for] {
         font-size: 18px !important;
       }
 
-      min-width: 40%;
-      max-width: 40%;
+      min-width: 45%;
+      max-width: 45%;
     }
     padding-top: 0.3em;
     display: flex;
@@ -120,3 +120,38 @@ label[for="exp-month"] {
 }
 
 /**/
+
+.error {
+  color: $red;
+  font-size: 0.7em;
+  margin-top: 0.7em;
+}
+
+.inputError {
+  border-color: $red !important;
+}
+
+.hide {
+  display: none;
+}
+
+.error-block {
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 1fr;
+}
+
+.complete-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 220px;
+
+  h1 {
+    letter-spacing: 0.1em;
+  }
+
+  p {
+    color: $dark-grayish-violet;
+  }
+}
