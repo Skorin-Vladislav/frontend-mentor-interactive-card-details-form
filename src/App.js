@@ -284,7 +284,13 @@ function App() {
 
   let submit = () => {
     if (complete) {
+      setOwnerName("");
+      setMonth("");
+      setYear("");
+      setCardNumber("");
+      setCvc("");
       setComplete(!complete);
+
       return false;
     }
 
@@ -315,8 +321,63 @@ function App() {
 
     let qs = document.querySelectorAll("p.error:not(.hide)");
 
-    // console.log(qs);
-    // console.log(qs.length);
+    let nameInput = document.querySelectorAll("input#name ~ p:not(.hide)");
+
+    if (nameInput.length > 0) {
+      let input = document.getElementById("name");
+      input.classList.add("input-error");
+    } else {
+      let input = document.getElementById("name");
+      input.classList.remove("input-error");
+    }
+
+    let cardNumberInput = document.querySelectorAll(
+      "input#card-number ~ p:not(.hide)"
+    );
+
+    if (cardNumberInput.length > 0) {
+      let input = document.getElementById("card-number");
+      input.classList.add("input-error");
+    } else {
+      let input = document.getElementById("card-number");
+      input.classList.remove("input-error");
+    }
+
+    let monthInput = document.querySelectorAll(
+      ".error-block  div:nth-child(1) p:not(.hide)"
+    );
+
+    if (monthInput.length > 0) {
+      let input = document.getElementById("exp-month");
+      input.classList.add("input-error");
+    } else {
+      let input = document.getElementById("exp-month");
+      input.classList.remove("input-error");
+    }
+
+    let yearInput = document.querySelectorAll(
+      ".error-block  div:nth-child(2) p:not(.hide)"
+    );
+
+    if (yearInput.length > 0) {
+      let input = document.getElementById("exp-year");
+      input.classList.add("input-error");
+    } else {
+      let input = document.getElementById("exp-year");
+      input.classList.remove("input-error");
+    }
+
+    let cvcInput = document.querySelectorAll(
+      ".error-block  div:nth-child(3) p:not(.hide)"
+    );
+
+    if (cvcInput.length > 0) {
+      let input = document.getElementById("cvc");
+      input.classList.add("input-error");
+    } else {
+      let input = document.getElementById("cvc");
+      input.classList.remove("input-error");
+    }
 
     if (qs.length === 0) {
       setComplete(true);
