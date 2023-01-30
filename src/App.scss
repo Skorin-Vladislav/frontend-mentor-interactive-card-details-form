@@ -66,7 +66,7 @@ label[for] {
     }
     padding-top: 0.3em;
     display: flex;
-    justify-content: space-between;
+
     min-width: 100%;
   }
 }
@@ -74,7 +74,8 @@ label[for] {
 label[for="cvc"] {
   display: flex;
   flex-direction: column;
-  max-width: 50%;
+
+  min-width: 50%;
 }
 
 label[for="exp-month"] {
