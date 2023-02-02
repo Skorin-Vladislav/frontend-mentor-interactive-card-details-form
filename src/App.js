@@ -1,5 +1,6 @@
 import icon_complete from "./images/icon-complete.svg";
 import bg_main_mobile from "./images/bg-main-mobile.png";
+import bg_main_desktop from "./images/bg-main-desktop.png";
 import "./App.scss";
 import CardBack from "./components/CardBack";
 import CardFront from "./components/CardFront";
@@ -395,6 +396,7 @@ function App() {
   return (
     <div className="App">
       <img className="background-mobile" src={bg_main_mobile} alt=""></img>
+      <img className="background-desktop" src={bg_main_desktop} alt=""></img>
       <CardBack cvc={Cvc} />
       <CardFront
         OwnerName={OwnerName}
@@ -402,6 +404,7 @@ function App() {
         Year={Year}
         CardNumber={CardNumber}
       />
+
       <div className="margin">
         <div className="inputs">
           {complete ? (
