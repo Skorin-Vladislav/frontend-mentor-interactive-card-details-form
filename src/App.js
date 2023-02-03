@@ -1,6 +1,27 @@
 import icon_complete from "./images/icon-complete.svg";
 import bg_main_mobile from "./images/bg-main-mobile.png";
 import bg_main_desktop from "./images/bg-main-desktop.png";
+
+import {
+  validateOwnerNameSpecialSymbols,
+  validateOwnerNameEmpty,
+  validateOwnerNameLength,
+  validateOwnerNameFormat,
+  validateCardNumberFormat,
+  validateCardNumberEmpty,
+  validateCardNumberLength,
+  validateCardNumberSpecialSymbols,
+  validateMonthFormat,
+  validateMonthEmpty,
+  validateMonthSpecialSymbols,
+  validateYearFormat,
+  validateYearEmpty,
+  validateYearSpecialSymbols,
+  validateCvcFormat,
+  validateCvcLength,
+  validateCvcEmpty,
+  validateCvcSpecialSymbols,
+} from "./components/validation.js";
 import "./App.scss";
 import CardBack from "./components/CardBack";
 import CardFront from "./components/CardFront";
@@ -17,272 +38,6 @@ function App() {
 
   let [complete, setComplete] = useState(false);
 
-  let validateOwnerNameFormat = () => {
-    if (OwnerName.search(/\d+/gm) !== -1) {
-      let cardOwner = document.getElementById("nameValidationError");
-      cardOwner.classList.remove("hide");
-      return true;
-      // let input = document.getElementById("name");
-      // input.classList.add("inputError");
-    } else {
-      let cardOwner = document.getElementById("nameValidationError");
-      cardOwner.classList.add("hide");
-      return false;
-      // let input = document.getElementById("name");
-      // input.classList.remove("inputError");
-    }
-  };
-
-  let validateOwnerNameEmpty = () => {
-    if (OwnerName.length < 1) {
-      let cardOwner = document.getElementById("nameEmptyError");
-      cardOwner.classList.remove("hide");
-      return true;
-
-      // let input = document.getElementById("name");
-      // input.classList.add("inputError");
-    } else {
-      let cardOwner = document.getElementById("nameEmptyError");
-      cardOwner.classList.add("hide");
-      return false;
-
-      // let input = document.getElementById("name");
-      // input.classList.remove("inputError");
-    }
-  };
-
-  let validateOwnerNameLength = () => {
-    if (OwnerName.length > 1 && OwnerName.length < 4) {
-      let cardOwner = document.getElementById("nameLengthError");
-      cardOwner.classList.remove("hide");
-      return true;
-      // let input = document.getElementById("name");
-      // input.classList.add("inputError");
-    } else {
-      let cardOwner = document.getElementById("nameLengthError");
-      cardOwner.classList.add("hide");
-      return false;
-      // let input = document.getElementById("name");
-      // input.classList.remove("inputError");
-    }
-  };
-
-  let validateOwnerNameSpecialSymbols = () => {
-    if (
-      OwnerName.search(/[ \\`!@#$%^&*()_+\-=\\[\]{};':"\\|,.<>\\/?~]+/gm) !== -1
-    ) {
-      let cardOwner = document.getElementById(
-        "nameValidationSpecialSymbolsError"
-      );
-      cardOwner.classList.remove("hide");
-      return true;
-      // let input = document.getElementById("name");
-      // input.classList.add("inputError");
-    } else {
-      let cardOwner = document.getElementById(
-        "nameValidationSpecialSymbolsError"
-      );
-      cardOwner.classList.add("hide");
-      return false;
-      // let input = document.getElementById("name");
-      // input.classList.remove("inputError");
-    }
-  };
-
-  let validateCardNumberFormat = () => {
-    if (CardNumber.search(/[A-z]+/gm) !== -1) {
-      let CardNumber = document.getElementById("numberValidationError");
-      CardNumber.classList.remove("hide");
-      return true;
-    } else {
-      let CardNumber = document.getElementById("numberValidationError");
-      CardNumber.classList.add("hide");
-      return false;
-    }
-  };
-
-  let validateCardNumberEmpty = () => {
-    if (CardNumber.length < 1) {
-      let cardNumber = document.getElementById("numberEmptyError");
-      cardNumber.classList.remove("hide");
-      return true;
-    } else {
-      let cardNumber = document.getElementById("numberEmptyError");
-      cardNumber.classList.add("hide");
-      return false;
-    }
-  };
-
-  let validateCardNumberLength = () => {
-    if (CardNumber.length > 1 && CardNumber.length < 19) {
-      let cardNumber = document.getElementById("numberLengthError");
-      cardNumber.classList.remove("hide");
-      return true;
-    } else {
-      let cardNumber = document.getElementById("numberLengthError");
-      cardNumber.classList.add("hide");
-      return false;
-    }
-  };
-
-  let validateCardNumberSpecialSymbols = () => {
-    if (
-      CardNumber.search(/[\\`!@#$%^&*()_+\-=\\[\]{};':"\\|,.<>\\/?~]+/gm) !== -1
-    ) {
-      let cardNumber = document.getElementById(
-        "numberValidationSpecialSymbolsError"
-      );
-      cardNumber.classList.remove("hide");
-      return true;
-    } else {
-      let cardNumber = document.getElementById(
-        "numberValidationSpecialSymbolsError"
-      );
-      cardNumber.classList.add("hide");
-      return false;
-    }
-  };
-
-  let validateMonthFormat = () => {
-    if (Month.search(/\D+/gm) !== -1) {
-      let month = document.getElementById("monthValidationError");
-      month.classList.remove("hide");
-    } else {
-      let month = document.getElementById("monthValidationError");
-      month.classList.add("hide");
-    }
-
-    if (+Month < 1 || +Month > 12) {
-      let month = document.getElementById("monthValidationValue");
-      month.classList.remove("hide");
-      return true;
-    } else {
-      let month = document.getElementById("monthValidationValue");
-      month.classList.add("hide");
-      return false;
-    }
-  };
-
-  let validateMonthEmpty = () => {
-    if (Month.length < 1) {
-      let month = document.getElementById("monthEmptyError");
-      month.classList.remove("hide");
-      return true;
-    } else {
-      let month = document.getElementById("monthEmptyError");
-      month.classList.add("hide");
-      return false;
-    }
-  };
-
-  let validateMonthSpecialSymbols = () => {
-    if (Month.search(/[\\`!@#$%^&*()_+\-=\\[\]{};':"\\|,.<>\\/?~]+/gm) !== -1) {
-      let month = document.getElementById("monthValidationSpecialSymbolsError");
-      month.classList.remove("hide");
-      return true;
-    } else {
-      let month = document.getElementById("monthValidationSpecialSymbolsError");
-      month.classList.add("hide");
-      return false;
-    }
-  };
-
-  ////
-  let validateYearFormat = () => {
-    if (Year.search(/\D+/gm) !== -1) {
-      let year = document.getElementById("yearValidationError");
-      year.classList.remove("hide");
-    } else {
-      let year = document.getElementById("yearValidationError");
-      year.classList.add("hide");
-    }
-
-    if (
-      new Date().getFullYear() + 5 < +Year + 2000 ||
-      +Year + 2000 < new Date().getFullYear() - 5
-    ) {
-      let year = document.getElementById("yearValidationValue");
-      year.classList.remove("hide");
-      return true;
-    } else {
-      let year = document.getElementById("yearValidationValue");
-      year.classList.add("hide");
-      return false;
-    }
-  };
-
-  let validateYearEmpty = () => {
-    if (Year.length < 1) {
-      let year = document.getElementById("yearEmptyError");
-      year.classList.remove("hide");
-      return true;
-    } else {
-      let year = document.getElementById("yearEmptyError");
-      year.classList.add("hide");
-      return false;
-    }
-  };
-
-  let validateYearSpecialSymbols = () => {
-    if (Year.search(/[\\`!@#$%^&*()_+\-=\\[\]{};':"\\|,.<>\\/?~]+/gm) !== -1) {
-      let year = document.getElementById("yearValidationSpecialSymbolsError");
-      year.classList.remove("hide");
-      return true;
-    } else {
-      let year = document.getElementById("yearValidationSpecialSymbolsError");
-      year.classList.add("hide");
-      return false;
-    }
-  };
-
-  let validateCvcFormat = () => {
-    if (Cvc.search(/\D+/gm) !== -1) {
-      let cvc = document.getElementById("cvcValidationError");
-      cvc.classList.remove("hide");
-      return true;
-    } else {
-      let cvc = document.getElementById("cvcValidationError");
-      cvc.classList.add("hide");
-      return false;
-    }
-  };
-
-  let validateCvcLength = () => {
-    if (Cvc.length < 3 && Cvc.length > 1) {
-      let cvc = document.getElementById("cvcLengthValidationError");
-      cvc.classList.remove("hide");
-      return true;
-    } else {
-      let cvc = document.getElementById("cvcLengthValidationError");
-      cvc.classList.add("hide");
-      return false;
-    }
-  };
-
-  let validateCvcEmpty = () => {
-    if (Cvc.length < 1) {
-      let cvc = document.getElementById("cvcEmptyError");
-      cvc.classList.remove("hide");
-      return true;
-    } else {
-      let cvc = document.getElementById("cvcEmptyError");
-      cvc.classList.add("hide");
-      return false;
-    }
-  };
-
-  let validateCvcSpecialSymbols = () => {
-    if (Cvc.search(/[\\`!@#$%^&*()_+\-=\\[\]{};':"\\|,.<>\\/?~]+/gm) !== -1) {
-      let cvc = document.getElementById("cvcValidationSpecialSymbolsError");
-      cvc.classList.remove("hide");
-      return true;
-    } else {
-      let cvc = document.getElementById("cvcValidationSpecialSymbolsError");
-      cvc.classList.add("hide");
-      return false;
-    }
-  };
-
   let submit = () => {
     if (complete) {
       setOwnerName("");
@@ -295,30 +50,28 @@ function App() {
       return false;
     }
 
-    /*done*/
-    validateOwnerNameFormat();
-    validateOwnerNameEmpty();
-    validateOwnerNameLength();
-    validateOwnerNameSpecialSymbols();
+    validateOwnerNameFormat(OwnerName);
+    validateOwnerNameEmpty(OwnerName);
+    validateOwnerNameLength(OwnerName);
+    validateOwnerNameSpecialSymbols(OwnerName);
     //
-    validateCardNumberFormat();
-    validateCardNumberEmpty();
-    validateCardNumberLength();
-    validateCardNumberSpecialSymbols();
+    validateCardNumberFormat(CardNumber);
+    validateCardNumberEmpty(CardNumber);
+    validateCardNumberLength(CardNumber);
+    validateCardNumberSpecialSymbols(CardNumber);
     //
-    validateMonthFormat();
-    validateMonthEmpty();
-    validateMonthSpecialSymbols();
+    validateMonthFormat(Month);
+    validateMonthEmpty(Month);
+    validateMonthSpecialSymbols(Month);
     //
-    validateYearFormat();
-    validateYearEmpty();
-    validateYearSpecialSymbols();
+    validateYearFormat(Year);
+    validateYearEmpty(Year);
+    validateYearSpecialSymbols(Year);
     //
-    validateCvcFormat();
-    validateCvcLength();
-    validateCvcEmpty();
-    validateCvcSpecialSymbols();
-    /**done */
+    validateCvcFormat(Cvc);
+    validateCvcLength(Cvc);
+    validateCvcEmpty(Cvc);
+    validateCvcSpecialSymbols(Cvc);
 
     let qs = document.querySelectorAll("p.error:not(.hide)");
 
